@@ -1,4 +1,4 @@
-let val=384.43
+let val=384.43;
 console.log(Math.floor(val));
 console.log(Math.random());
 console.log(Math.ceil(val));
