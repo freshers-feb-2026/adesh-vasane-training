@@ -38,8 +38,8 @@ const firstServer = http.createServer((req, res) => {
           const message=parseBuffer.split('=')[1]
           fs.writeFileSync("message.txt",message);
             res.statusCode=302;
-      res.setHeader('location','/');
-      return res.end();
+           res.setHeader('location','/');
+            return res.end();
       });
       
     
