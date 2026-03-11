@@ -10,3 +10,4 @@ console.log(a);
 
 console.log(this.a) //here this will give undefined but properly works on browser
 console.log(window.a); //referenceerror here beacuse in node js window dont know 
+console.log(window.a);

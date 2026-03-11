@@ -1,4 +1,4 @@
-// this method is used to add the element in the array
+// this method is used to add the element in the array at last
 
 let arr=new Array(1,23,56,6);
 

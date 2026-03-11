@@ -7,3 +7,5 @@ users.map((data)=>{
     data.age=30
     console.log(data);
 })
+;
+('.');

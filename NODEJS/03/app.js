@@ -1,5 +1,6 @@
 const http = require("http");
 
+const fs=require("fs");
 const firstServer = http.createServer((req, res) => {
   console.log(req.method, req.url, req.statusCode);
 
@@ -23,6 +24,28 @@ const firstServer = http.createServer((req, res) => {
   {
        res.write("<h1> form submited </h1>");
        return res.end();
+      //This is the strem code 
+       const body=[];
+       req.on('data',(chunk)=>
+      {
+        console.log(chunk);
+        body.push(chunk);
+      })
+
+      //This is Buffer code
+    
+      return req.on("end",()=>
+      {
+          const parseBuffer=Buffer.concat(body).toString();
+          console.log(parseBuffer);
+          const message=parseBuffer.split('=')[1]
+          fs.writeFileSync("message.txt",message);
+            res.statusCode=302;
+           res.setHeader('location','/');
+            return res.end();
+      });
+      
+    
   }
 
   res.setHeader("Content-Type", "text/html");
@@ -35,3 +58,18 @@ const firstServer = http.createServer((req, res) => {
 });
 
 firstServer.listen(3000);
+
+
+/*
+  two ways to using node module system
+     module.exports=funName;
+    const declartionname=require('./funName');
+
+    //export multiple things together
+
+     module.exports={
+      handler:functionName1,
+      handler2:functionName2
+     }
+
+*/
