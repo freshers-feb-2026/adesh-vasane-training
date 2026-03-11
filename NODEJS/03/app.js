@@ -1,4 +1,5 @@
 const http = require("http");
+
 const fs=require("fs");
 const firstServer = http.createServer((req, res) => {
   console.log(req.method, req.url, req.statusCode);
@@ -21,6 +22,8 @@ const firstServer = http.createServer((req, res) => {
 
   if(url==='/message' && req.method==='POST')
   {
+       res.write("<h1> form submited </h1>");
+       return res.end();
       //This is the strem code 
        const body=[];
        req.on('data',(chunk)=>

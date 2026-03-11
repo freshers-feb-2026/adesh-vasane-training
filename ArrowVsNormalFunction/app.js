@@ -1,3 +1,4 @@
+// Q. Why there is a need of arrow function?
 // Q. Why there is a need of arrow function
 // ans: arrow function provide clean and morden syntax and the main problem with while 
 // working with the this keyword arrow function is directly store into window so it will take 

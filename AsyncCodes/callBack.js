@@ -44,6 +44,7 @@ function getData(callback)
     .then((data)=>callback(data))
     .catch((err)=>  console.log("error :",err));
 }
+
 function printData(data)
 {
     console.log("data : ",data);
@@ -71,6 +72,7 @@ function step2(callback)
     },1000);
   
 }
+
 function step3(callback)
 {
     setTimeout(()=>
@@ -80,6 +82,7 @@ function step3(callback)
     },1000);
   
 }
+
 step1(()=>
 {   
     console.log("done 1");

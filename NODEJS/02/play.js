@@ -49,3 +49,6 @@ fetchData(findData).then((result)=>{
     console.log(result);
 });
 
+const num=20;
+num=30;
+console.log(num);
