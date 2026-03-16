@@ -1,0 +1,88 @@
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   // url      = "prisma+mysql://root:2004@localhost:3306/todo_db"
+//   relationMode = "prisma"
+// }
+
+// // datasource db {
+// //   provider = "mysql"
+// //   url      = "mysql://root:2004@localhost:3306/todo_db"
+// // }
+// model User {
+//   id        Int      @id @default(autoincrement())
+//   name      String
+//   email     String   @unique
+//   password  String
+//   role      Role     @default(user)
+//   todos     Todo[]
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
+
+// model Todo {
+//   id          Int        @id @default(autoincrement())
+//   title       String
+//   description String?
+//   status      TodoStatus @default(pending)
+//   userId      Int
+//   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   createdAt   DateTime   @default(now())
+//   updatedAt   DateTime   @updatedAt
+// }
+
+// enum Role {
+//   user
+//   admin
+// }
+
+// enum TodoStatus {
+//   pending
+//   completed
+// }
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // url      = "prisma+mysql://root:2004@localhost:3306/todo_db"
+  relationMode = "prisma"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(user)
+  todos     Todo[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Todo {
+  id          Int        @id @default(autoincrement())
+  title       String
+  description String?
+  status      TodoStatus @default(pending)
+  userId      Int
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+enum Role {
+  user
+  admin
+}
+
+enum TodoStatus {
+  pending
+  completed
+}
